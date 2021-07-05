@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import random
 
 client = commands.Bot(command_prefix = '--')
 
@@ -19,4 +20,8 @@ async def on_member_remove(member):
 async def latency(ctx):
     await ctx.send(f'Latency is {round(client.latency * 1000)}')
 
+@client.command(aliases=['8ball'])
+async def _8ball(ctx, *, question):
+    responses = ['add your responses here']
+    await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 client.run('')
